@@ -3,9 +3,6 @@ $(document).ready(function () {
     $("#signin").hide();
     $("#update").hide();
     $("#delete").hide();
-    // $("#edit_by_id").hide();
-    // $("#update_by_id").hide();
-    // $("#delete_by_id").hide();
 });
 
 function submit() {
@@ -21,12 +18,14 @@ function submit() {
         } else {
             window.location = "index.php";
         }
-    } else if (pass != re_pass || re_pass != pass) {
+    }
+    else if (pass != re_pass || re_pass != pass) {
         alert('Password Dosent Match => !!');
     } else {
         alert('Please Fill Registration Form => !!');
     }
 }
+
 
 
 function login() {

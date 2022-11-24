@@ -1,85 +1,14 @@
 <?php
-include_once "conn.php"
+include_once "conn.php";
+include_once "helper.php";
 ?>
+
 <?php
-function hash_pass($originalPassword)
-{
-    return md5($originalPassword);
-}
-
-function login($email, $pass)
-{
-    global $conn;
-    $sql = "SELECT * FROM `tab` WHERE email='$email' and password='$pass' ";
-    $result = mysqli_query($conn, $sql);
-    if ($result != null) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-
-
-
-?>
-<?php
-
-// Signup Data To Database  ...
-
-if (isset($_POST['submit'])) {
-    if ($_POST == true) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $md5_pass = hash_pass($_POST['pass']);
-        $md5_re_pass = hash_pass($_POST['re_pass']);
-        if ($name && $email && $md5_pass == true && $md5_pass == $md5_re_pass) {
-            $query = "INSERT INTO `tab`(`name`, `email`, `password`, `re_password`) VALUES ('$name','$email','$md5_pass','$md5_re_pass')";
-            try {
-                $result = mysqli_query($conn, $query);
-            } catch (Exception $ex) {
-                die("<script>
-                alert('This Email Already Exists Please Try Other Email');
-                window.location = 'index.php';
-                </script>");
-            }
-            if ($result != false) {
-                die("<script>
-            alert('Your Data Submited Successfully');
-            window.location = 'index.php';
-            </script>");
-            }
-        } else if ($name && $email && $md5_pass == true && $pass != $md5_re_pass || $md5_re_pass != $md5_pass) {
-            die("<script>
-            alert('Your Password Coudnt Match');
-            window.location = 'index.php';
-            </script>");
-        }
-    } else {
-        die("<script>
-        alert('Please Fill Registration');
-        window.location = 'index.php';
-        </script>");
-    }
-}
 
 
 // Login ...
 
-if (isset($_POST['login'])) {
-    $is_success = login($_POST['email'], $_POST['pass']);
-    if ($is_success == true) {
-        die("<script>
-        alert(' Wellcome ');
-                window.location = 'index.php';
-                </script>");
-    } else {
-        echo "<script>
-            alert('Incorrect Email or Password !!');
-            window.location = 'index.php';
-            </script>";
-    }
-}
+
 
 // Update Data From Database ...
 
