@@ -1,10 +1,27 @@
 <?php
-include_once "conn.php";
-
+include_once "conn.php"
+?>
+<?php
 function hash_pass($originalPassword)
 {
     return md5($originalPassword);
 }
+
+function login($email, $pass)
+{
+    global $conn;
+    $sql = "SELECT * FROM `tab` WHERE email='$email' and password='$pass' ";
+    $result = mysqli_query($conn, $sql);
+    if ($result != null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+
+
 ?>
 <?php
 
@@ -50,31 +67,19 @@ if (isset($_POST['submit'])) {
 // Login ...
 
 if (isset($_POST['login'])) {
-    $email = $_POST['email'];
-    $md5_pass = hash_pass($_POST['pass']);
-    if ($email and $md5_pass == true) {
-        $sql = "SELECT * FROM `tab` WHERE email='$email' AND password='$md5_pass'";
-        $query = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($query);
-        if ($row == true) {
-            die("<script>
-                alert(' Wellcome =>  $row[name] ');
-                window.location = 'indefx.php';
+    $is_success = login($_POST['email'], $_POST['pass']);
+    if ($is_success == true) {
+        die("<script>
+        alert(' Wellcome ');
+                window.location = 'index.php';
                 </script>");
-        } else {
-            echo "<script>
+    } else {
+        echo "<script>
             alert('Incorrect Email or Password !!');
             window.location = 'index.php';
             </script>";
-        }
-    } else {
-        die("<script>
-        alert('Empty Value');
-        window.location = 'index.php';
-        </script>");
     }
 }
-
 
 // Update Data From Database ...
 
