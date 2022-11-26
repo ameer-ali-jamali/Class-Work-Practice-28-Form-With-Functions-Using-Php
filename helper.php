@@ -128,7 +128,7 @@ function delete_by_id($id)
         $result = mysqli_query($conn, $sql);
         return $result;
     } else {
-        die("<script>
+        return die("<script>
     window.location = 'index.php';
     </script>");
     }

@@ -20,18 +20,12 @@ while ($data = mysqli_fetch_assoc($result)) {
     echo "<th>$data[id]</th>";
     echo "<td>$data[name]</td>";
     echo "<td>$data[email]</td>";
-    echo '<td> <form method="post">
-    <input type="hidden" name="id" value=' . $data['id'] . '>
-    <input type="hidden" name="edit_by_id" id="edit_by_id" >
-    <input  type="submit" class="btn btn-sm btn-success" onclick="confirm_edit()" value="Edit">
-    </form>
-    </td>';
-    echo '<td> <form method="post">
-        <input type="hidden" name="id" value=' . $data['id'] . '>
-        <input type="hidden" name="update_by_id" id="update_by_id" >
-        <input  type="submit" class="btn btn-sm btn-primary" onclick="confirm_update()" value="Update">
-        </form>
-        </td>';
+    // echo '<td> <form method="post">
+    //     <input type="hidden" name="id" value=' . $data['id'] . '>
+    //     <input type="hidden" name="update_by_id" id="update_by_id" >
+    //     <input  type="submit" class="btn btn-sm btn-success" onclick="confirm_update()" value="Update">
+    //     </form>
+    //     </td>';
     echo '<td> <form method="post">
             <input type="hidden" name="id" id="id" value=' . $data['id'] . '>
             <input type="hidden" name="delete_by_id" id="delete_by_id" >

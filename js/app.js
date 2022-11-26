@@ -1,9 +1,9 @@
-$(document).ready(function () {
-    $("#signup").hide();
-    $("#signin").hide();
-    $("#update").hide();
-    $("#delete").hide();
-});
+// $(document).ready(function () {
+//     $("#signup").hide();
+//     $("#signin").hide();
+//     $("#update").hide();
+//     $("#delete").hide();
+// });
 
 function submit() {
     let name = document.getElementById("name").value;
@@ -68,7 +68,7 @@ function update() {
 function delete_() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("pass").value;
-    if (email && pass) {
+    if (email && pass == true) {
         if (confirm("Please Confirm For Registration !!") == true) {
             $(document).ready(function () {
                 $("#delete").click();
@@ -77,11 +77,10 @@ function delete_() {
             window.location = "index.php";
         }
 
+    } else {
+
+        alert('Please Fill Registration Form => !!');
     }
-    // else {
-    // 
-    // alert('Please Fill Registration Form => !!');
-    // }
 }
 
 function confirm_delete() {
@@ -90,7 +89,7 @@ function confirm_delete() {
             $("#delete_by_id").click();
         });
     } else {
-        $("#id").val("");
+        // $("#id").val("");
         window.location = "index.php";
     }
 
