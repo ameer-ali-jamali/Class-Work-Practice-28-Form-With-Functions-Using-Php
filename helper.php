@@ -84,6 +84,69 @@ if (isset($_POST['login'])) {
     }
 }
 
+// Delete ...
+function delete($email, $pass)
+{
+    global $conn;
+    $sql = "SELECT * FROM `tab` WHERE email='$email' AND password='$pass'";
+    $query = mysqli_query($conn, $sql);
+    $row = mysqli_num_rows($query);
+    if ($row > 0) {
+        $sql =  "DELETE FROM tab WHERE email='$email' AND password='$pass' ";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    } else {
+        return die("<script>
+    alert('Incorrect Email Or Password');
+    window.location = 'index.php';
+    </script>");
+    }
+}
+
+if (isset($_POST['delete'])) {
+    $result = delete($_POST['email'], ($_POST['pass']));
+    if ($result == true) {
+        die("<script>
+                alert('Your Data Deleted Success fully');
+                window.location = 'index.php';
+                </script>");
+    } else {
+        die("<script>
+            alert('Incorrect Email Or Password');
+            window.location = 'index.php';
+            </script>");
+    }
+}
+
+
+// Delete_by_id Function ..
+function delete_by_id($id)
+{
+    global $conn;
+    if ($id == true) {
+        $sql = "DELETE FROM tab WHERE id = $id";
+        $result = mysqli_query($conn, $sql);
+        return $result;
+    } else {
+        die("<script>
+    window.location = 'index.php';
+    </script>");
+    }
+}
+
+if (isset($_POST['delete_by_id'])) {
+    $result = delete_by_id($_POST['id']);
+    if ($result == true) {
+        die("<script>
+    alert('Deleted Succesfully');
+    window.location = 'index.php';
+    </script>");
+    } else {
+        die("<script>
+    window.location = 'index.php';
+    </script>");
+    }
+}
 
 
 

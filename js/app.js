@@ -60,7 +60,7 @@ function update() {
         }
 
     } else {
-        alert('Please Fill Registration Form => !!');
+        alert('Empty Form => !!');
     }
 
 }
@@ -68,7 +68,7 @@ function update() {
 function delete_() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("pass").value;
-    if (email && pass != "") {
+    if (email && pass) {
         if (confirm("Please Confirm For Registration !!") == true) {
             $(document).ready(function () {
                 $("#delete").click();
@@ -77,10 +77,11 @@ function delete_() {
             window.location = "index.php";
         }
 
-    } else {
-        alert('Please Fill Registration Form => !!');
     }
-
+    // else {
+    // 
+    // alert('Please Fill Registration Form => !!');
+    // }
 }
 
 function confirm_delete() {

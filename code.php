@@ -11,7 +11,6 @@ include_once "helper.php";
 
 
 // Update Data From Database ...
-
 if (isset($_POST['update'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -42,60 +41,8 @@ if (isset($_POST['update'])) {
 }
 
 
-// Delete Data From Database ...
 
-if (isset($_POST['delete'])) {
-    if ($_POST == true) {
-        $email = $_POST['email'];
-        $md5_pass = hash_pass($_POST['pass']);
-        if ($email && $md5_pass == true) {
-            $sql = "SELECT * FROM `tab` WHERE email='$email' AND password='$md5_pass'";
-            $query = mysqli_query($conn, $sql);
-            $row = mysqli_num_rows($query);
-            if ($row == true) {
-                $query =  "DELETE FROM tab WHERE email='$email' AND password='$md5_pass' ";
-                $re = mysqli_query($conn, $query);
-                die("<script>
-                alert('Your Data Deleted Success fully');
-                window.location = 'index.php';
-                </script>");
-            } else {
-                die("<script>
-            alert('Incorrect Email or Password !!');
-            window.location = 'index.php';
-            </script>");
-            }
-        }
-    } else {
-        die("<script>
-    alert('Empty Value');
-    window.location = 'index.php';
-    </script>");
-    }
-}
 
-if (isset($_POST['delete_by_id'])) {
-    $id = $_POST['id'];
-    if ($id == true) {
-        $sql = "DELETE FROM tab WHERE id = {$_POST['id']}";
-        $result = mysqli_query($conn, $sql);
-        if ($result == true) {
-            die("<script>
-    alert('Deleted Succesfully');
-    window.location = 'index.php';
-    </script>");
-        } else {
-            die("<script>
-    alert('Error');
-    window.location = 'index.php';
-    </script>");
-        }
-    } else {
-        die("<script>
-        window.location = 'index.php';
-        </script>");
-    }
-}
 
 
 
