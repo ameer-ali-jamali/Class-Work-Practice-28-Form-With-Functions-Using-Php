@@ -1,19 +1,16 @@
 <?php
 try {
-    $conn = new mysqli("localhost", "root", "", "std");
+    $conn = new mysqli('localhost', 'root', '', 'std');
 } catch (Exception $ex) {
-    echo $ex . "This is error";
-    die("Connection failed");
+    echo $ex . 'This is error';
+    die('Connection failed');
 }
-?>
-<?php
 
 // Hash Pass Function ..
 function hash_pass($originalPassword)
 {
     return md5($originalPassword);
 }
-
 // Signup Function ...
 function signup($name, $email, $pass, $re_pass)
 {
@@ -31,17 +28,20 @@ function signup($name, $email, $pass, $re_pass)
             }
         }
         return $result;
-    } else if ($pass == true and $pass != $re_pass) {
+    } elseif ($pass == true and $pass != $re_pass) {
         return die("<script>
     alert('password dosent match');
     window.location = 'index.php';
     </script>");
     }
 }
-
-
 if (isset($_POST['submit'])) {
-    $registration = signup($_POST['name'], $_POST['email'], $_POST['pass'], $_POST['re_pass']);
+    $registration = signup(
+        $_POST['name'],
+        $_POST['email'],
+        $_POST['pass'],
+        $_POST['re_pass']
+    );
     if ($registration == true) {
         die("<script>
             alert('Your Data Submited Successfully');
@@ -53,10 +53,7 @@ if (isset($_POST['submit'])) {
             window.location = 'index.php';
             </script>");
     }
-}
-
-
-// Login Function ...
+} // Login Function ...
 function login($email, $pass)
 {
     global $conn;
@@ -68,7 +65,6 @@ function login($email, $pass)
         return false;
     }
 }
-
 if (isset($_POST['login'])) {
     $is_success = login($_POST['email'], $_POST['pass']);
     if ($is_success == true) {
@@ -82,9 +78,7 @@ if (isset($_POST['login'])) {
             window.location = 'index.php';
             </script>";
     }
-}
-
-// Delete ...
+} // Delete ...
 function delete($email, $pass)
 {
     global $conn;
@@ -92,7 +86,7 @@ function delete($email, $pass)
     $query = mysqli_query($conn, $sql);
     $row = mysqli_num_rows($query);
     if ($row > 0) {
-        $sql =  "DELETE FROM tab WHERE email='$email' AND password='$pass' ";
+        $sql = "DELETE FROM tab WHERE email='$email' AND password='$pass' ";
         $result = mysqli_query($conn, $sql);
         return $result;
     } else {
@@ -102,9 +96,8 @@ function delete($email, $pass)
     </script>");
     }
 }
-
 if (isset($_POST['delete'])) {
-    $result = delete($_POST['email'], ($_POST['pass']));
+    $result = delete($_POST['email'], $_POST['pass']);
     if ($result == true) {
         die("<script>
                 alert('Your Data Deleted Success fully');
@@ -117,8 +110,6 @@ if (isset($_POST['delete'])) {
             </script>");
     }
 }
-
-
 // Delete_by_id Function ..
 function delete_by_id($id)
 {
@@ -133,7 +124,6 @@ function delete_by_id($id)
     </script>");
     }
 }
-
 if (isset($_POST['delete_by_id'])) {
     $result = delete_by_id($_POST['id']);
     if ($result == true) {
@@ -147,7 +137,4 @@ if (isset($_POST['delete_by_id'])) {
     </script>");
     }
 }
-
-
-
 ?>
