@@ -10,8 +10,7 @@ echo "<th scope='col'>Id</th>";
 echo "<th scope='col'>Name</th>";
 echo "<th scope='col'>Email</th>";
 echo "<th scope='col'></th>";
-echo "<th scope='col'></th>";
-echo "<th scope='col'></th>";
+
 echo '</tr>';
 echo '</thead>';
 echo '<tbody>';
@@ -20,22 +19,13 @@ while ($data = mysqli_fetch_assoc($result)) {
     echo "<th>$data[id]</th>";
     echo "<td>$data[name]</td>";
     echo "<td>$data[email]</td>";
-    // echo '<td> <form method="post">
-    //     <input type="hidden" name="id" value=' . $data['id'] . '>
-    //     <input type="hidden" name="update_by_id" id="update_by_id" >
-    //     <input  type="submit" class="btn btn-sm btn-success" onclick="confirm_update()" value="Update">
-    //     </form>
-    //     </td>';
     echo '<td> <form method="post">
-            
-    <input type="hidden" name="id" id="id" value='.$data['id'].'>
-            <input type="hidden" name="delete_by_id" id="delete_by_id" >
-            <input  type="submit" class="btn btn-sm btn-danger" onclick="confirm_delete()" value="DELETE">
-            </form>
-            </td>';
+    <input type="submit"  name="delete_by_id" id="delete_by_id" value=' . $data['id'] . '>
+    <input  type="submit" class="btn btn-sm btn-danger" onclick="confirm_delete()" value="Delete">
+    </form>
+    </td>';
     echo '</tr>';
 }
 echo '</tbody>';
 echo '</table>';
 echo '</div>';
-?>

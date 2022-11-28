@@ -1,10 +1,3 @@
-// $(document).ready(function () {
-//     $("#signup").hide();
-//     $("#signin").hide();
-//     $("#update").hide();
-//     $("#delete").hide();
-// });
-
 function submit() {
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
@@ -41,7 +34,7 @@ function login() {
         }
 
     } else {
-        alert('Please Fill Registration Form => !!');
+        alert('Please Input Email and Password => !!');
     }
 
 }
@@ -79,7 +72,7 @@ function delete_() {
 
     } else {
 
-        alert('Please Fill Registration Form => !!');
+        alert('Please Fill  Form => !!');
     }
 }
 

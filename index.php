@@ -16,6 +16,10 @@
     <script src="js/jquery_min.js"></script>
     <script src="js/app.js"></script>
 </header>
+<?php
+include "helper.php";
+include "conn.php";
+?>
 
 <body>
     <div class="container-fluid">
@@ -25,7 +29,7 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title text-align">Sign up</h2>
-                        <form action="index.php" method="post" class="register-form" id="register-form">
+                        <form method="post" class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="name" id="name" placeholder="Your Name" />
@@ -51,17 +55,19 @@
                                     statements in
                                     <a href="#" class="term-service">Terms of service</a></label>
                             </div>
-                            <div class="form-group form-button">
+
+
+                            <div class="form-grou p form-button">
                                 <div class="d-grid">
-                                    <!-- <a href="#" onclick="submit()" class="btn btn-primary p-2">Register</a>
+                                    <a href="#" onclick="submit()" class="btn btn-primary p-2">Register</a>
                                     <a href="#" onclick="login()" class="btn btn-success p-2">Login</a>
                                     <a href="#" onclick="update()" class="btn btn-secondary p-2">Update</a>
-                                    <a href="#" onclick="delete_()" class="btn btn-danger p-2">Delete</a> -->
+                                    <a href="#" onclick="delete_()" class="btn btn-danger p-2">Delete</a>
 
-                                    <input type="submit" name="submit" id="signup" hidden />
-                                    <input type="submit" name="login" id="signin" hidden />
-                                    <input type="submit" name="update" id="update" hidden />
-                                    <input type="submit" name="delete" id="delete" hidden />
+                                    <input type="submit" hidden name="submit" id="signup" value="Signup" />
+                                    <input type="submit" hidden name="login" id="signin" value="Login" />
+                                    <input type="submit" hidden name="update" id="update" value="Update" />
+                                    <input type="submit" hidden name="delete" id="delete" value="Delete" />
                                 </div>
                             </div>
                         </form>
