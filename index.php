@@ -14,7 +14,7 @@
     <script src="js/boostarp_min.js"></script>
     <!-- Jqery -->
     <script src="js/jquery_min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/helper.js"></script>
 </header>
 <?php
 include "helper.php";
