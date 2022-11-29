@@ -78,12 +78,14 @@ function delete_() {
 
 function confirm_delete() {
     if (confirm("R You Sure You Want To Delete ? ") == true) {
-        $(document).ready(function () {
-            $("#delete_by_id").click();
-        });
+        // $(document).ready(function () {
+        //     $("#delete_by_id").click();
+        // });
+        alert("confirm");
     } else {
-        // $("#id").val("");
-        window.location = "index.php";
+        // // $("#id").val("");
+        // window.location = "index.php";
+        alert('hello');
     }
 
 }

@@ -158,18 +158,12 @@ if (isset($_POST['delete'])) {
 function delete_by_id($id)
 {
     global $conn;
-    if ($id == true) {
-        $sql = "DELETE FROM tab WHERE id = $id";
-        $result = mysqli_query($conn, $sql);
-        return $result;
-    } else {
-        return die("<script>
-    window.location = 'index.php';
-    </script>");
-    }
+    $sql = "DELETE FROM tab WHERE id = $id";
+    $result = mysqli_query($conn, $sql);
+    return $result;
 }
 if (isset($_POST['delete_by_id'])) {
-    $result = delete_by_id($_POST['id']);
+    $result = delete_by_id($_POST['delete_by_id']);
     if ($result == true) {
         die("<script>
     alert('Deleted Succesfully');
