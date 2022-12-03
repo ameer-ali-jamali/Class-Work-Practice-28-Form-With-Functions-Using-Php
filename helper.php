@@ -175,3 +175,4 @@ if (isset($_POST['delete_by_id'])) {
     </script>");
     }
 }
+?>
