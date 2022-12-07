@@ -31,15 +31,15 @@ CREATE TABLE `tab` (
   `id` int(11) NOT NULL,
   `name` varchar(55) NOT NULL,
   `email` varchar(55) NOT NULL,
-  `password` varchar(55) NOT NULL,
-  `re_password` varchar(55) NOT NULL
+  `pass` varchar(55) NOT NULL,
+  `re_pass` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tab`
 --
 
-INSERT INTO `tab` (`id`, `name`, `email`, `password`, `re_password`) VALUES
+INSERT INTO `tab` (`id`, `name`, `email`, `pass`, `re_pass`) VALUES
 ('Ameer_ali', 'jamaliameer1@gmail.com', 'ameer', 'ameer'),
 ('A-1-Uniforms', 'email@j.com', 'a-1', 'a-1'),
 ('Emma Collins', 'lkjkjk@f.com', 'emme', 'emme'),
