@@ -31,21 +31,21 @@ CREATE TABLE `tab` (
   `id` int(11) NOT NULL,
   `name` varchar(55) NOT NULL,
   `email` varchar(55) NOT NULL,
-  `pass` varchar(55) NOT NULL,
-  `re_pass` varchar(55) NOT NULL
+  `password` varchar(55) NOT NULL,
+  `re_password` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tab`
 --
 
-INSERT INTO `tab` (`id`, `name`, `email`, `pass`, `re_pass`) VALUES
-('Ameer_ali', 'jamaliameer1@gmail.com', 'ameer', 'ameer'),
-('A-1-Uniforms', 'email@j.com', 'a-1', 'a-1'),
-('Emma Collins', 'lkjkjk@f.com', 'emme', 'emme'),
-('Junaid', 'khanhmdkhn13@gmail.com', 'junaid', 'junaid'),
-('Akram', 'k@j.com', 'akram', 'akram'),
-('Anwar', 'puvicusu@kellychibale-researchgroup-uct.com', 'anwar', 'anwar');
+INSERT INTO `tab` (`id`, `name`, `email`, `password`, `re_password`) VALUES
+(1,'Ameer_ali', 'jamaliameer1@gmail.com', 'ameer', 'ameer'),
+(2,'A-1-Uniforms', 'email@j.com', 'a-1', 'a-1'),
+(3,'Emma Collins', 'lkjkjk@f.com', 'emma', 'emma'),
+(4,'Junaid', 'khanhmdkhn13@gmail.com', 'junaid', 'junaid'),
+(5,'Akram', 'k@j.com', 'akram', 'akram'),
+(6,'Anwar', 'puvicusu@kellychibale-researchgroup-uct.com', 'a', 'a');
 
 --
 -- Indexes for dumped tables
@@ -66,7 +66,7 @@ ALTER TABLE `tab`
 -- AUTO_INCREMENT for table `tab`
 --
 ALTER TABLE `tab`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

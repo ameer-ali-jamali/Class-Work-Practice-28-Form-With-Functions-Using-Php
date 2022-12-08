@@ -61,7 +61,7 @@ function update() {
 function delete_() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("pass").value;
-    if (email && pass == true) {
+    if (email && pass) {
         if (confirm("Please Confirm For Registration !!") == true) {
             $(document).ready(function () {
                 $("#delete").click();
@@ -71,21 +71,17 @@ function delete_() {
         }
 
     } else {
-
         alert('Please Fill  Form => !!');
     }
 }
 
 function confirm_delete() {
     if (confirm("R You Sure You Want To Delete ? ") == true) {
-        // $(document).ready(function () {
-        //     $("#delete_by_id").click();
-        // });
-        alert("confirm");
+        $(document).ready(function () {
+            $("#delete_by_id").click();
+        });
     } else {
-        // // $("#id").val("");
-        // window.location = "index.php";
-        alert('hello');
+        window.location = "index.php";
     }
 
 }
