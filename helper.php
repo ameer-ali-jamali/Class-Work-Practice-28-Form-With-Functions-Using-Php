@@ -58,6 +58,7 @@ if (isset($_POST['submit'])) {
 // Login Function ...
 function login($email, $pass)
 {
+
     global $conn;
     if ($email && $pass == true) {
         $sql = "SELECT * FROM `tab` WHERE email='$email' and password='$pass' ";
@@ -175,4 +176,3 @@ if (isset($_POST['delete_by_id'])) {
     </script>");
     }
 }
-?>
