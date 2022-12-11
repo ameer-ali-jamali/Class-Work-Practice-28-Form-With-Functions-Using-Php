@@ -12,6 +12,47 @@ function hash_pass($originalPassword)
     return md5($originalPassword);
 }
 
+
+// // Get Image Function ...
+function get_img($img)
+{
+    global $conn;
+    if ($img == true) {
+        $folder = "uploads/";
+        $target = $folder . basename($_FILES['img']['name']);
+        $find_img_name = "SELECT * FROM `tab` WHERE img='$target'";
+        $query = mysqli_query($conn, $find_img_name);
+        $row = mysqli_num_rows($query);
+        if ($row > 0) {
+            return die("<script>
+            alert('Image Name Already Exists Please Change Name');
+            window.location = 'index.php';
+            </script>");
+        } else {
+            move_uploaded_file($img, $target);
+            $sql = "INSERT INTO `tab`(`img`) VALUES ('$target')";
+            $result = mysqli_query($conn, $sql);
+            return $result;
+        }
+    }
+}
+
+if (isset($_POST['submit'])) {
+    $result = get_img($_FILES['img']['tmp_name']);
+    if ($result == true) {
+        die("<script>
+            alert('Your Image Submited Successfully');
+            window.location = 'index.php';
+            </script>");
+    } else {
+        die("<script>
+            alert('Query Error');
+            window.location = 'index.php';
+            </script>");
+    }
+}
+
+
 //Signup Function with image submit ...
 function submit_data_img($name, $email, $pass, $img)
 {
