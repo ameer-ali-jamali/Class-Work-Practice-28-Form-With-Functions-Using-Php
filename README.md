@@ -1,3 +1,4 @@
 # Send form data into database
 This is registration form .signup , signin , update and delete ..
-these all programs based on functions and you can modify easily as you wish ..
+This all code is based on functions and in this registartion form i used php and javascript for better experiance ...
+you can modify easily as you wish ..
